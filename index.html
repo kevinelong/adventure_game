@@ -1,0 +1,108 @@
+<style>body { background-color: black; color: white;}</style>
+<body>
+    <table>
+        <tr>
+            <td>
+                
+            </td>
+            <td>
+                <button id="up">^</button>
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button  id="left">&lt;</button>
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                <button id="right">&gt;</button>                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                
+            </td>
+            <td>
+                <button id="down">v</button>                                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+    </table>
+    <div id="map"></div>
+</body>
+<script>
+    let sprites = [
+        {
+            name: "hero",
+            attributes: [],
+            position: {
+                x: 10,
+                y: 10
+            },
+            symbol: "@",
+            score: 0
+        },
+        {
+            name: "treasure",
+            attributes: [],
+            position: {
+                x: 5,
+                y: 5
+            },
+            symbol: "$",
+            points: 100
+        },
+        {name: "wall",   attributes: [], position: { x: 20, y: 16 }, symbol: "#", points: 100},
+        {name: "wall",   attributes: [], position: { x: 20, y: 17 }, symbol: "#", points: 100},
+        {name: "wall",   attributes: [], position: { x: 20, y: 18 }, symbol: "#", points: 100},
+        {name: "wall",   attributes: [], position: { x: 20, y: 19 }, symbol: "#", points: 100},
+        {name: "wall",   attributes: [], position: { x: 20, y: 20 }, symbol: "#", points: 100},
+        {name: "wall",   attributes: [], position: { x: 15, y: 20 }, symbol: "#", points: 100},
+        {name: "wall",   attributes: [], position: { x: 16, y: 20 }, symbol: "#", points: 100},
+        {name: "wall",   attributes: [], position: { x: 17, y: 20 }, symbol: "#", points: 100},
+        {name: "wall",   attributes: [], position: { x: 18, y: 20 }, symbol: "#", points: 100},
+        {name: "wall",   attributes: [], position: { x: 19, y: 20 }, symbol: "#", points: 100},
+        {name: "floor",   attributes: [], position: { x: 19, y: 19 }, symbol: ".", points: 100},
+    ]
+
+    function render(){
+        map.innerHTML = ""; //clear the map
+        sprites.forEach(sprite=>{
+            div = document.createElement("div");
+            div.style.position = 'absolute';
+            div.style.left = sprite.position.x + "rem"
+            div.style.top = sprite.position.y + "rem"
+            div.innerHTML = sprite.symbol;
+            map.appendChild(div) //append to map
+        })
+    }
+
+    function arrowClick(e){
+        console.log(e.target.id)
+        id = e.target.id;
+        if("up" == id){
+            sprites[0].position.y--;
+        }else if("down"==id){
+            sprites[0].position.y++;
+        }else if("left"==id){
+            sprites[0].position.x--;
+        }else if("right"==id){
+            sprites[0].position.x++;
+        }
+        render();
+    }
+
+    up.addEventListener("click", arrowClick)
+    down.addEventListener("click", arrowClick)
+    left.addEventListener("click", arrowClick)
+    right.addEventListener("click", arrowClick)
+
+    render()
+</script>
