@@ -5,6 +5,7 @@ body { background-color: black; color: white;}
 </style>
 <body>
     <div id="score">?</div>
+    <div id="status">@@@</div>
     <table id="arrows">
         <tr>
             <td>
@@ -43,6 +44,9 @@ body { background-color: black; color: white;}
     <div id="map"></div>
 </body>
 <script>
+
+    let lives = 3
+
     let sprites = [
     {
             name: "hero",
@@ -62,7 +66,7 @@ body { background-color: black; color: white;}
                 y: 15
             },
             symbol: "Z",
-            score: 0
+            points: 200
         },
         {
             name: "treasure",
@@ -121,7 +125,7 @@ body { background-color: black; color: white;}
         sprites.forEach((sprite,i)=>{
             if("images" == MODE){
                 div = document.createElement("img");
-                div.src = sprite.name + ".png"
+                div.src = "images/" + sprite.name + ".png"
                 div.style='width:1rem;height:1rem;object-fit:contain;'
                 div.style.zIndex = -i
             }else{
@@ -134,6 +138,13 @@ body { background-color: black; color: white;}
             map.appendChild(div) //append to map
         })
         score.innerHTML = sprites[0].score
+
+        output = ""
+        for(life=0; life < lives; life++){
+            output += "@ "
+        }
+        status.innerHTML = output
+        
     }
 
     function arrowClick(e){
@@ -159,6 +170,16 @@ body { background-color: black; color: white;}
         }else if("treasure" == what.name){
             sprites[0].score += what.points
             remove(what)
+        }else if("zombie" == what.name){
+            //FIGHT!
+            zombie_role = Math.round(Math.random() * 6)
+            hero_role = Math.round(Math.random() * 6) 
+            if(hero_role >= zombie_role){
+                sprites[0].score += what.points
+                remove(what)    
+            }else{
+                lives -= 1
+            }
         }
         render();
     }
