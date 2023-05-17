@@ -115,14 +115,22 @@ body { background-color: black; color: white;}
         })
     }
 
+    MODE = "images"
     function render(){ //DRAW
         map.innerHTML = ""; //clear the map
-        sprites.forEach(sprite=>{
-            div = document.createElement("div");
+        sprites.forEach((sprite,i)=>{
+            if("images" == MODE){
+                div = document.createElement("img");
+                div.src = sprite.name + ".png"
+                div.style='width:1rem;height:1rem;object-fit:contain;'
+                div.style.zIndex = -i
+            }else{
+                div = document.createElement("div");        
+                div.innerHTML = sprite.symbol;
+            }
             div.style.position = 'absolute';
             div.style.left = sprite.position.x + "rem"
             div.style.top = sprite.position.y + "rem"
-            div.innerHTML = sprite.symbol;
             map.appendChild(div) //append to map
         })
         score.innerHTML = sprites[0].score
