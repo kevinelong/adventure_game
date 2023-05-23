@@ -35,9 +35,17 @@ img {
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
 	opacity: 1;
+	margin-left: 0rem;
+	margin-top: 0rem;
 }
 .removed{
+	margin-left: -.5rem;
+	margin-top: -2rem;
+	width: 2rem;
+	height: 2rem;
 	opacity: 0;
+	z-index: 1000;
+	transition: all 500ms linear;
 }
 /*body{*/
 /*    display: grid;*/

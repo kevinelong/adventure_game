@@ -6,7 +6,7 @@ function arrowPad(){
                 
             </td>
             <td>
-                <button id="up">^</button>
+                <button id="up">&#9650;</button>
             </td>
             <td>
                 
@@ -14,13 +14,13 @@ function arrowPad(){
         </tr>
         <tr>
             <td>
-                <button  id="left">&lt;</button>
+                <button  id="left">&#9664;</button>
             </td>
             <td>
                 
             </td>
             <td>
-                <button id="right">&gt;</button>                
+                <button id="right">&#9654;</button>                
             </td>
         </tr>
         <tr>
@@ -28,7 +28,7 @@ function arrowPad(){
                 
             </td>
             <td>
-                <button id="down">v</button>                                
+                <button id="down">&#9660;</button>                                
             </td>
             <td>
                 

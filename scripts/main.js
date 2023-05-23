@@ -65,11 +65,16 @@ let sprites = g.entities;
      get("right").addEventListener("click", arrowClick)
 
 	document.addEventListener("keydown",(event) => {
+		console.log(event.keyCode)
 		let CODES = {
 			37: "left",
 			38: "up",
 			39: "right",
-			40: "down"
+			40: "down",
+			65: "left", //a
+			87: "up",   //w
+			83: "down", //s
+			68: "right",//d
 		};
 		g.move(CODES[event.keyCode]);
 		render();
