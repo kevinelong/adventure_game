@@ -2,7 +2,15 @@ body {
     background-color: black;
     color: white;
 }
+*{
+    font-size: min(3vw, 4vh);
+}
 
+.world, .map{
+    margin: auto;
+    position: relative;
+    width: 90vw;
+}
 #arrows {
     position: fixed;
     bottom: 1rem;
@@ -14,3 +22,14 @@ body {
     bottom: 1rem;
     left: 1rem;
 }
+
+img {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/*body{*/
+/*    display: grid;*/
+/*    place-items: center;*/
+/*}*/
