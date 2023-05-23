@@ -9,9 +9,6 @@ class Entity {
     }
 }
 
-let e = new Entity("hep cat", undefined, "%");
-console.log(e.toString())
-
 class Wall extends Entity {
     constructor(position) {
         super("wall", position = position, "#");
@@ -35,12 +32,14 @@ class Character extends Entity{
 class Hero extends Character {
     constructor(position, health=100, attributes={}) {
         super(position, "@", "hero", health, attributes);
+	this.score=0;
     }
 }
 
 class Zombie extends Character {
     constructor(position) {
         super(position, "Z", "zombie", 25, {});
+	this.coins = 50;
     }
 }
 
