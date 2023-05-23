@@ -24,11 +24,21 @@ body {
 }
 
 img {
+    width:1rem;
+    height:1rem;
+    object-fit: contain;
+    left:0;
+    top:0;
+    position: absolute;
+    transition: all 225ms;
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
+	opacity: 1;
 }
-
+.removed{
+	opacity: 0;
+}
 /*body{*/
 /*    display: grid;*/
 /*    place-items: center;*/

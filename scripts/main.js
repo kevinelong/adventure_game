@@ -19,22 +19,29 @@ let sprites = g.entities;
 	MODE = "images";
 
      function render() { //DRAW
-         window.map.innerHTML = ""; //clear the map
+         //window.map.innerHTML = ""; //clear the map
          sprites.forEach((sprite, i) => {
              let div;
-             if ("images" === MODE) {
-                 div = document.createElement("img");
-                 div.src = "images/" + sprite.name + ".png";
-                 div.setAttribute("style", 'width:1rem;height:1rem;object-fit:contain;');
-                 div.style.zIndex = (-i).toString();
-             } else {
-                 div = document.createElement("div");
-                 div.innerHTML = sprite.symbol;
+             if(undefined === sprite.element){
+		     if ("images" === MODE) {
+			 div = document.createElement("img");
+			 div.src = "images/" + sprite.name + ".png";
+			 //div.setAttribute("style", 'width:1rem;height:1rem;object-fit:contain;');
+			 div.style.zIndex = (-i).toString();
+		     } else {
+			 div = document.createElement("div");
+			 div.innerHTML = sprite.symbol;
+		     }
+                     sprite.element = div;
+                     window.map.appendChild(div); //append to map
+             }else{
+		div=sprite.element;
+	     }
+             if(sprite.removed){
+		div.classList.add("removed");
              }
-             div.style.position = 'absolute';
              div.style.left = sprite.position.x + "rem";
              div.style.top = sprite.position.y + "rem";
-             window.map.appendChild(div); //append to map
          })
          window.score.innerHTML = g.hero.score;
 

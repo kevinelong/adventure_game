@@ -48,7 +48,8 @@ class Game {
     remove(what) {
  	this.entities.forEach((s, i) => {
              if (s === what) {
-                 this.entities.splice(i, 1); //DELETE 1 at the current index i
+		s.removed = true;
+                 //this.entities.splice(i, 1); //DELETE 1 at the current index i
              }
          })
      }
@@ -68,7 +69,7 @@ class Game {
 	
 	let what = this.look(destination);
 
-	if(null=== what || what.name === "floor"){
+	if(null=== what || what.name === "floor" || what.removed){
 		this.hero.position = destination;
          } else if ("treasure" === what.name) {
              this.hero.score += what.coins;
