@@ -18,24 +18,9 @@ class Game {
       new Zombie(new Position(this.width - 2, 2)),
       new Treasure(new Position(this.width - 2, 1), 300),
     ];
-    this.room();
-  }
-
-  room() {
-    for (let r = 0; r < this.height; r++) {
-      for (let c = 0; c < this.width; c++) {
-        if (
-          r === 0 ||
-          r === this.height - 1 ||
-          c === 0 ||
-          c === this.width - 1
-        ) {
-          this.entities.push(new Wall(new Position(c, r)));
-        } else {
-          this.entities.push(new Floor(new Position(c, r)));
-        }
-      }
-    }
+    this.map = new Map(this);
+    debugger;
+    this.map.room();
   }
 
   look(position) {
