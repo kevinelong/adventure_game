@@ -1,12 +1,5 @@
 let g = new Game();
 
-g.move(Direction.RIGHT)
-
-let status = g.status()
-console.log(status.hero.position.x)
-
-let sprites = g.entities;
-
  document.addEventListener("DOMContentLoaded", () => {
 
      document.body.innerHTML = world(score() + stats() + arrowPad() + map());
@@ -20,7 +13,7 @@ let sprites = g.entities;
 
      function render() { //DRAW
          //window.map.innerHTML = ""; //clear the map
-         sprites.forEach((sprite, i) => {
+         g.entities.forEach((sprite, i) => {
              let div;
              if(undefined === sprite.element){
 		     if ("images" === MODE) {

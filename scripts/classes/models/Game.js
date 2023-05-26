@@ -1,10 +1,3 @@
-class Direction {
-  static UP = "up";
-  static RIGHT = "right";
-  static DOWN = "down";
-  static LEFT = "left";
-}
-
 class Game {
   constructor() {
     this.lives = 3;
@@ -19,7 +12,6 @@ class Game {
       new Treasure(new Position(this.width - 2, 1), 300),
     ];
     this.map = new Map(this);
-    debugger;
     this.map.room();
   }
 
