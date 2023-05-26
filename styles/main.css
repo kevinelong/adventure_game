@@ -43,6 +43,7 @@ body {
 	opacity: 1;
 	margin-left: 0rem;
 	margin-top: 0rem;
+    transition: all 200ms linear;
 }
 
 .map > img.removed{
