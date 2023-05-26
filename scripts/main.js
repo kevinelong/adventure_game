@@ -8,10 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
     view.render();
   }
 
-  document.getElementById("up").addEventListener("click", arrowClick)
-  document.getElementById("down").addEventListener("click", arrowClick)
-  document.getElementById("left").addEventListener("click", arrowClick)
-  document.getElementById("right").addEventListener("click", arrowClick)
+  get("up").addEventListener("click", arrowClick)
+  get("down").addEventListener("click", arrowClick)
+  get("left").addEventListener("click", arrowClick)
+  get("right").addEventListener("click", arrowClick)
   
 
   view.render();
