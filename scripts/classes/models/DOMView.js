@@ -27,10 +27,7 @@ class DOMView {
       this.render();
     });
   }
-  arrowClick(e) {
-    this.game.move(e.target.id);
-    this.render();
-  }
+  
   render() {
     //DRAW
     //window.map.innerHTML = ""; //clear the map
