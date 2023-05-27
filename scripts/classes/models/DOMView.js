@@ -6,10 +6,6 @@ class DOMView {
     "map score stats up down left right".split(" ").forEach((cls) => {
       window[cls] = document.querySelector(`.${cls}`);
     });
-    get("up").addEventListener("click", this.arrowClick);
-    get("down").addEventListener("click", this.arrowClick);
-    get("left").addEventListener("click", this.arrowClick);
-    get("right").addEventListener("click", this.arrowClick);
 
     document.addEventListener("keydown", (event) => {
       console.log(event.keyCode);
