@@ -55,8 +55,8 @@ body {
 	z-index: 1000;
 	transition: all 500ms linear;
 }
-
-/*body{*/
-/*    display: grid;*/
-/*    place-items: center;*/
-/*}*/
+/* 
+body{
+   display: grid;
+   place-items: center;
+} */
