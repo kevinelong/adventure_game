@@ -3,16 +3,16 @@ class Game {
     this.lives = 3;
     this.width = 12;
     this.height = 8;
-
-    this.hero = new Hero(new Position(this.width - 2, this.height - 2));
-
-    this.entities = [
-      this.hero,
-      new Zombie(new Position(this.width - 2, 2)),
-      new Treasure(new Position(this.width - 2, 1), 300),
-    ];
+    this.entities = [];
     this.map = new Map(this);
-    this.map.room();
+    this.map.roomFromText(`
+    ############
+    #....Z.....#
+    #.@..#..$..#
+    #....#######
+    ######
+    `);
+    // this.map.room();
   }
 
   look(position) {

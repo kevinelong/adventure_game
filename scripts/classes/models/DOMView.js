@@ -33,7 +33,12 @@ class DOMView {
         div = document.createElement("img");
         div.src = "images/" + sprite.name + ".png";
         //div.setAttribute("style", 'width:1rem;height:1rem;object-fit:contain;');
-        div.style.zIndex = (-i).toString();
+
+        if(sprite.symbol==="."){
+          div.style.zIndex = 100;
+        }else{
+          div.style.zIndex = 200;  
+        }
         
         sprite.element = div;
         window.map.appendChild(div); //append to map

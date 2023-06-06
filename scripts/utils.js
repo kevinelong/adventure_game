@@ -11,8 +11,7 @@ const div = (cls, c) => tag("div", c, { class: cls });
 const img = (attributes = {}) => stag("img", attributes);
 
 const str2aa = (s) =>
-  s
-    .split("\n")
+    s.split("\n")
     .map((r) => r.split(""))
     .filter((a) => a.length > 0);
 
